@@ -1,2 +1,2 @@
-# Basics_Of_Web_Development
-Just basic work of 2-3 days to revert the knowledge 
+# Web_Development
+Complete Web development study from basic to Advance
