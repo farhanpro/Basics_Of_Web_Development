@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  text-align: center;
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.Rounded_photo{
+    border-radius: 500em;
+    height: 150px;
+    width: 150px;
+  }
+
+h1 {
+  font-family: 'Sacramento', cursive;
+}
+
+div {
+  background-color: #E4f9f5;
+}
+
+.top-container {
+  position: relative;
+  padding-top: 200px;
+}
+
+.middle {
+  height: 200px;
+  width: 200px;
+  background-color: red;
+}
+
+span {
+  text-decoration: underline;
+}
+.About_me{
+  font-size: 2.5em;
+}
+
+.bottom-cloud {
+  position: absolute;
+}
+
+.top-cloud {
+  position: absolute;
+  right: 300px;
+  top: 50px;
+}
+
+.top-left-cloud {
+  position: absolute;
+  left: 300px;
+  top: 50px;
+}
+ul{
+  display: inline;
+}
+li{
+  font-size: 20px;
+  line-height: 50px;
+}
+p{
+  font-size: 20px;
+}
+table{
+    position: relative;
+    left: 670px  ;
+    border-style: inset;
+    border-color: #f5b461;
+    border-width: thick;
+  }
