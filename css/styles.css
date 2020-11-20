@@ -13,6 +13,14 @@ body {
 h1 {
   font-family: 'Sacramento', cursive;
   font-size: 3rem;
+  color: #66BFBF;
+  line-height: 2;
+}
+h2{
+  font-family: 'Sacramento', cursive;
+  color: #66BFBF;
+  font-size: 3rem;
+  font-weight: normal;
 }
 
 div {
@@ -63,8 +71,8 @@ p{
   font-size: 20px;
 }
 table{
-    position: relative;
-    left: 670px  ;
+    width : 50%;
+    margin:auto;
     border-style: inset;
     border-color: #f5b461;
     border-width: thick;
