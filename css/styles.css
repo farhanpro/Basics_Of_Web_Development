@@ -61,6 +61,9 @@ span {
   left: 300px;
   top: 50px;
 }
+.mountain{
+  size : 50%;
+}
 ul{
   display: inline;
 }
