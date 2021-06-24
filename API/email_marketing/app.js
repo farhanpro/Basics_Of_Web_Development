@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
-const https = require('https')
+const https = require('https');
+const { format } = require('path');
 
 const app = express();
 app.use(express.static("public"));
@@ -25,18 +26,22 @@ app.post('/', function(req,res){
             }
         ]
     };
+    app.post('/faliure.html', function(req,res){
+        res.redirect("/");
+    })
     const jsonData = JSON.stringify(data);
-    const url = "https://us6.api.mailchimp.com/3.0/lists/12a050b479";
+    const url = "https://us6.api.mailchimp.com/3.0/lists/c972119e29";
     const options ={
         method:"POST",
-        auth:"Farhan:1e006239dd66553921b35134b53981ca-us6"
+        auth:"Farhan:4eab6b7ca9ed01322c9ef341148b4e5-us6"
     }
 
     const request = https.request(url,options,function(response){
         if(response.statusCode === 200){
-            res.send("Succesfully Subscribed");
+            res.sendFile(__dirname + '/success.html');
         }else{
-            res.send("Faliure");
+            res.sendFile(__dirname+"/faliure.html");
+            
         }
         response.on("data",function (data){
             console.log(JSON.parse(data));
@@ -45,10 +50,10 @@ app.post('/', function(req,res){
     request.write(jsonData);
     request.end();
 })
-app.listen(3000,function(){console.log("Server is running at port 3000")});
+app.listen(process.env.PORT || 3000,function(){console.log("Server is running at port 3000")});
 
 
-
+// https://pure-waters-90077.herokuapp.com/
 //api key2 :1e006239dd66553921b35134b53981ca-us6
 //list ID2 : 12a050b479
 //api key : 4eab6b7ca9ed01322c9ef341148b4e56-us6
