@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Overlays Within Street View</title>
+    <script src="./index.js"></script>
+    <!-- jsFiddle will insert css and js -->
+  </head>
+  <body>
+      <link rel="stylesheet" href="style.css">
+    <div id="floating-panel">
+      <input type="button" value="Toggle Street View" id="toggle" />
+    </div>
+    <div id="map"></div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKOQepoWsZQlxNjNRGt-sVZyOQX5u7brA&callback=initMap&v=weekly&channel=2"
+      async
+    ></script>
+  </body>
+</html>
