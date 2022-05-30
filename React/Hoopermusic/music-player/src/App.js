@@ -39,7 +39,7 @@ function App() {
   };
 
   useEffect(() => {
-    fetch(`${baseUrl}song`)
+    fetch(`${baseUrl}ong`)
       .then((res) => res.json())
       .then((jsonResp) => {
         console.log({ jsonResp });
