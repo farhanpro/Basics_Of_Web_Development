@@ -23,7 +23,7 @@ export default function ButtonAppBar() {
             <MenuIcon />
           </IconButton>
          
-          <Button className = "left100" color="inherit"><img  src = {PunchHere}></img></Button>
+          <Button className = "right0" color="inherit"><img  src = {PunchHere}></img></Button>
         </Toolbar>
       </AppBar>
     </Box>
