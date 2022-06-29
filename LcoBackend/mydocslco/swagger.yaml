@@ -1,0 +1,259 @@
+openapi: "3.0.0"
+info:
+  title: learn express and swagger
+  description: course segment about writing docs
+  version: 1.1.0
+  contact:
+    email: shaikhfarhan549@gmail.com
+    url  : "https://github.com/farhanpro"
+
+# servers:
+#   - url: "https://localhost:4000/api/v1"
+#     description : For Local Host -secure
+#   - url: "https://localhost:4000/api/v1"
+#     description : For Local Host -regular
+
+servers :
+  - url : "{protocol}://localhost:4000/api/{version}"
+    description : For the Local Host {options}
+    variables : 
+      version:
+        enum:
+          - v1
+          - v2
+        default: v1
+      protocol:
+        enum:
+          - http
+          - https
+        default: http
+      options:
+        enum:
+          - secure
+          - open
+
+components : 
+  securitySchemes:
+    cookieAuth:
+      type : apiKey
+      in : cookie
+      name : token
+    BearerAuth:
+      type: http
+      schema: bearer
+
+paths:
+  /lco:
+    get:
+      tags:
+        - String
+      summary: returns a greet message from lco
+      responses:
+        200 :
+          description : All Good and SucessFull
+          content : 
+            application/json:
+              schema:
+                type : string
+                eaxmple : "my String"
+        400 :
+          description : Bad Request
+        500 :
+          description : Internal Server Error
+
+  /lcoobject:
+    get:
+      tags:
+        - String
+      summary: returns a greet message from lco
+      responses:
+        200 :
+          description : All Good and SucessFull
+          content : 
+            application/json:
+              schema:
+                type : object
+                properties:
+                  id:
+                    type: string
+                  name: 
+                    type: string
+                  price: 
+                    type: string
+
+        400 :
+          description : Bad Request
+        500 :
+          description : Internal Server Error
+
+  /courses:
+    get:
+      tags:
+        - Array
+      summary: returns all courses
+      responses:
+        200 :
+          description : All Good and SucessFull
+          content : 
+            application/json:
+              schema:
+                type : array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name: 
+                      type: string
+                    price: 
+                      type: string
+
+        400 :
+          description : Bad Request
+        500 :
+          description : Internal Server Error
+
+  /mycourse/{courseId}:
+    get:
+      tags:
+        - String
+      summary: returns course based on request id
+      parameters:
+        - name : courseId
+          in: path
+          required: true
+          default: 12
+          schema:
+            type: String
+      responses:
+        200 :
+          description : All Good and SucessFull
+          content : 
+            application/json:
+              schema:
+                type : object
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name: 
+                      type: string
+                    price: 
+                      type: string
+
+        400 :
+          description : Bad Request
+        500 :
+          description : Internal Server Error
+
+
+  /addcourses:
+    post:
+      tags:
+        - String
+      summary: adds a new course to exsisting courses
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      requestBody:
+        required : true
+        content :
+         application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              price:
+                type: string
+
+      responses:
+        200 :
+          description : All Good and SucessFull
+          content : 
+            application/json:
+              schema:
+                type : array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name: 
+                      type: string
+                    price: 
+                      type: string
+
+        400 :
+          description : Bad Request
+        500 :
+          description : Internal Server Error
+
+  /coursequery:
+    get:
+      tags:
+        - String
+      summary: trying to learn about query
+      parameters:
+        - name : location
+          in : query
+          required : true
+          schema:
+            type : string 
+            enum : [delhi,londoon,jaipur]
+
+        - name : device
+          in : query
+          required : true
+          schema:
+            type : string 
+            enum : [web,mobile]
+      responses:
+        200 :
+          description : All Good and SucessFull
+          content : 
+            application/json:
+              schema:
+                  type : object
+                  properties:
+                    name:
+                      type: string
+                    value : 
+                      type : string
+                  
+        400 :
+          description : Bad Request
+        500 :
+          description : Internal Server Error
+
+  /courseupload:
+    post:
+      tags:
+        - String
+      summary: Uploading course image
+      parameters:
+        - in: header
+          name : auth
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format : binary
+      responses:
+        200 :
+          description : All Good and SucessFull
+          
+                  
+        400 :
+          description : Bad Request
+        500 :
+          description : Internal Server Error
+

@@ -1,0 +1,79 @@
+openapi: 3.0.0
+info:
+  title: Social App
+  description: Our First Social App at LCO - Farhan
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:4000/api/v1
+    description: localhost version of our app
+  - url: http://localhost:4000/api/v1
+    description: This is just a dummy api url,it dosent work
+
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    BearerAuth:
+      type: http
+      scheme: bearer
+
+paths:
+  /instagram:
+    get:
+      summary: returns username,Followers and Follows
+      responses:
+        "200": #statusCode
+          description: return an object
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  username:
+                    type: string
+                  followers:
+                    type: string
+                  follows:
+                    type: string
+    post:
+      summary: returns username,Followers and Follows
+      responses:
+        "200": #statusCode
+          description: return an object
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  username:
+                    type: string
+                  followers:
+                    type: string
+                  follows:
+                    type: string
+  /{token}:
+    get:
+      summary: Returns whatever is there in the parameter
+      parameters:
+        -name: token
+          default : 5
+          in : path
+          schema:
+          type : string 
+      responses:
+        "200": #statusCode
+          description: return an object
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  username:
+                    type: string
+                  followers:
+                    type: string
+                  follows:
+                    type: string
+
