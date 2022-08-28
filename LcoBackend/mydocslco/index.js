@@ -36,7 +36,7 @@ let Courses =[{id:"11",name:"Learn React JS",price:299},
     res.send(Courses);});
 
     app.get('/api/v1/mycourse/:courseId',(req,res)=>{
-    const myCourse =  Courses.find(course=>course.id===req.params.courseId);
+    const myCourse =  Courses.find(course=>Courses.id===req.params.courseId);
     res.send(myCourse)});
 
     app.post('/api/v1/addcourses',(req,res)=>{

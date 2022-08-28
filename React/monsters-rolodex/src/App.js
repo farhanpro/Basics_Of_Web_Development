@@ -8,7 +8,7 @@ class App extends Component {
     super();
     this.state ={monsters : [{name:'Linda'},{name:'Frank'},{name:'Jacky'},{name:'Farhan'}]};
   }
-
+  componentDidMount() {}
   render() {
     function Returner(monsters)
     {
